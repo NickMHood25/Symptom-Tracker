@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SymptomTracker;assembly=SymptomTracker"
+             x:Class="SymptomTracker.MainPage">
+
+    <VerticalStackLayout>
+        <HorizontalStackLayout Spacing="5">
+            <Label x:Name="sortLabel" Text="Sorting:" Padding="15,0" VerticalTextAlignment="Center"></Label>
+            <RadioButton x:Name="sortByDate" CheckedChanged="sortByDate_CheckedChanged" Margin="0,0,-95,0"></RadioButton>
+            <Label Text="Date" VerticalTextAlignment="Center" Padding="0"></Label>
+            <RadioButton x:Name="sortByIntensity" CheckedChanged="sortByIntensity_CheckedChanged" Margin="0,0,-95,0"></RadioButton>
+            <Label Text="Intensity" VerticalTextAlignment="Center" Padding="0"></Label>
+        </HorizontalStackLayout>
+
+        <ScrollView VerticalOptions="FillAndExpand">
+            <VerticalStackLayout>
+                <ListView x:Name="symptomsListView" 
+                          ItemTapped="symptomsListView_ItemTapped" 
+                          VerticalScrollBarVisibility="Always"
+                          HeightRequest="400">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <VerticalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <BoxView x:Name="severityBox" WidthRequest="20" HeightRequest="20" Margin="10">
+                                            <BoxView.Triggers>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Intensity}" Value="1">
+                                                    <Setter Property="Color" Value="Green"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Intensity}" Value="2">
+                                                    <Setter Property="Color" Value="Green"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Intensity}" Value="3">
+                                                    <Setter Property="Color" Value="Green"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Intensity}" Value="4">
+                                                    <Setter Property="Color" Value="Yellow"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Intensity}" Value="5">
+                                                    <Setter Property="Color" Value="Yellow"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Intensity}" Value="6">
+                                                    <Setter Property="Color" Value="Yellow"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Intensity}" Value="7">
+                                                    <Setter Property="Color" Value="Yellow"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Intensity}" Value="8">
+                                                    <Setter Property="Color" Value="Red"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Intensity}" Value="9">
+                                                    <Setter Property="Color" Value="Red"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Intensity}" Value="10">
+                                                    <Setter Property="Color" Value="Red"/>
+                                                </DataTrigger>
+                                            </BoxView.Triggers>
+                                        </BoxView>
+                                        <Label Text="{Binding}" VerticalOptions="Center"/>
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding Description}" Padding="40,0,0,0" FontAttributes="Italic" TextColor="Gray"></Label>
+                                </VerticalStackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button x:Name="addEntry" Text="Add" Margin="10" Clicked="addEntry_Clicked"></Button>
+            </VerticalStackLayout>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>
+

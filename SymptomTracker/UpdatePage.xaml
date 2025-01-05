@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SymptomTracker.UpdatePage"
+             Title="UpdatePage">
+    <VerticalStackLayout>
+        <DatePicker x:Name="dateAdded"></DatePicker>
+        <TimePicker x:Name="timeAdded"></TimePicker>
+        <Picker x:Name="intensity">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:Int16}">
+                    <x:Int16>1</x:Int16>
+                    <x:Int16>2</x:Int16>
+                    <x:Int16>3</x:Int16>
+                    <x:Int16>4</x:Int16>
+                    <x:Int16>5</x:Int16>
+                    <x:Int16>6</x:Int16>
+                    <x:Int16>7</x:Int16>
+                    <x:Int16>8</x:Int16>
+                    <x:Int16>9</x:Int16>
+                    <x:Int16>10</x:Int16>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Entry x:Name="description" Placeholder="Enter description here"/>
+        <Button x:Name="Update" Text="Update" Clicked="Update_Clicked"></Button>
+        <Button x:Name="Cancel" Text="Cancel" Clicked="Cancel_Clicked"></Button>
+    </VerticalStackLayout>
+</ContentPage>
